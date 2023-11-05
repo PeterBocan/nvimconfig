@@ -26,7 +26,7 @@ return require('packer').startup(function(use)
 
   use 'nvim-lua/plenary.nvim'
 
-  use "bluz71/vim-nightfly-guicolors" -- a colorscheme
+  use 'navarasu/onedark.nvim'
 
   use "christoomey/vim-tmux-navigator" -- tmux & split window navigation
 

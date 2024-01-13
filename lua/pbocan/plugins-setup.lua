@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
   end
   })
 
+  use { 'ThePrimeagen/harpoon', branch = 'harpoon2', requires = { {'nvim-lua/plenary.nvim'} } } -- Prime's Harpoon 
   use "christoomey/vim-tmux-navigator" -- tmux & split window navigation
 
   use "szw/vim-maximizer" -- maximizes and restores current window

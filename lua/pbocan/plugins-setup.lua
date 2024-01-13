@@ -26,7 +26,14 @@ return require('packer').startup(function(use)
 
   use 'nvim-lua/plenary.nvim'
 
-  use 'navarasu/onedark.nvim'
+  use({ 'projekt0n/github-nvim-theme', config = function()
+    require('github-theme').setup({
+      -- ...
+    })
+
+    vim.cmd('colorscheme github_dark_high_contrast')
+  end
+  })
 
   use "christoomey/vim-tmux-navigator" -- tmux & split window navigation
 

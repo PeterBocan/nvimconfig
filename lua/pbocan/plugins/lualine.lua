@@ -4,7 +4,9 @@ if not status then
   return
 end
 
--- get lualine nightfly theme
--- local nordic = require("nordic")
-
--- new colors for theme
+lualine.setup {
+   options = {
+      icons_enabled = true,
+      theme = 'everforest',
+   }
+}

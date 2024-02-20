@@ -27,8 +27,12 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
 
   use 'AlexvZyl/nordic.nvim'
-  use "nvim-tree/nvim-web-devicons"
+  use  { "nvim-tree/nvim-web-devicons" }
 
+  require('nvim-web-devicons').setup {
+      default = true,
+      strict = true,
+  }
   require('nordic').load()
 
   use { 'ThePrimeagen/harpoon', branch = 'harpoon2', requires = { {'nvim-lua/plenary.nvim'} } } -- Prime's Harpoon 

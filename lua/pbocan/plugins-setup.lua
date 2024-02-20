@@ -26,14 +26,14 @@ return require('packer').startup(function(use)
 
   use 'nvim-lua/plenary.nvim'
 
-  use({ 'projekt0n/github-nvim-theme', config = function()
-    require('github-theme').setup({
-      -- ...
-    })
+  use 'AlexvZyl/nordic.nvim'
+  use  { "nvim-tree/nvim-web-devicons" }
 
-    vim.cmd('colorscheme github_dark_high_contrast')
-  end
-  })
+  require('nvim-web-devicons').setup {
+      default = true,
+      strict = true,
+  }
+  require('nordic').load()
 
   use { 'ThePrimeagen/harpoon', branch = 'harpoon2', requires = { {'nvim-lua/plenary.nvim'} } } -- Prime's Harpoon 
   use "christoomey/vim-tmux-navigator" -- tmux & split window navigation
@@ -47,9 +47,7 @@ return require('packer').startup(function(use)
 
   use "nvim-tree/nvim-tree.lua"
 
-  use "nvim-tree/nvim-web-devicons"
-
-  use "nvim-lualine/lualine.nvim"
+  use {  "nvim-lualine/lualine.nvim", requires = { 'nvim-tree/nvim-web-devicons', opt = true } }
 
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" } -- dependency for better sorting performance
   use { "nvim-telescope/telescope.nvim", branch = "0.1.x" } -- fuzzy finder

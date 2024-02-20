@@ -101,7 +101,7 @@ end
 --   filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 --})
 
-ccls_server_config = {
+ local ccls_server_config = {
   filetypes = { "c", "cpp", "objc", "objcpp", "opencl" },
   root_dir = function(fname)
     return util.root_pattern(".plzconfig", "compile_commands.json", "compile_flags.txt", ".git")(fname)
@@ -114,7 +114,8 @@ ccls_server_config = {
 ccls.setup{ lsp = { lspconfig = ccls_server_config } }
 
 lspconfig.gopls.setup{
-  cmd = {"gopls", "serve"},
+  cmd = {"gopls"},
+  capabilities = capabilities, 
   codelenses = {
     gc_details = true, 
   },
@@ -126,6 +127,7 @@ lspconfig.gopls.setup{
          unusedparams = true,
        },
        staticcheck = true,
+      completeUnimported = true
     },
   },
   on_attach = function(_, bufnr) 

@@ -35,6 +35,8 @@ return require('packer').startup(function(use)
   }
   require('nordic').load()
 
+  use { "folke/which-key.nvim" }
+
   use { 'ThePrimeagen/harpoon', branch = 'harpoon2', requires = { {'nvim-lua/plenary.nvim'} } } -- Prime's Harpoon 
   use "christoomey/vim-tmux-navigator" -- tmux & split window navigation
 
@@ -44,6 +46,7 @@ return require('packer').startup(function(use)
   use "inkarkat/vim-ReplaceWithRegister" -- replace with register contents using motion (gr + motion)
 
   use "numToStr/Comment.nvim"
+
 
   use "nvim-tree/nvim-tree.lua"
 

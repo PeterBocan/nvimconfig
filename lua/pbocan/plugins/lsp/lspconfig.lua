@@ -69,25 +69,25 @@ for type, icon in pairs(signs) do
 end
 
 -- configure html server
--- lspconfig["html"].setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
--- })
---
+lspconfig["html"].setup({
+   capabilities = capabilities,
+   on_attach = on_attach,
+})
+
 -- configure typescript server with plugin
--- typescript.setup({
---   server = {
---     capabilities = capabilities,
---     on_attach = on_attach,
---   },
--- })
+typescript.setup({
+   server = {
+     capabilities = capabilities,
+     on_attach = on_attach,
+   },
+})
 
 -- configure css server
--- lspconfig["cssls"].setup({
---   capabilities = capabilities,
---   on_attach = on_attach,
--- })
---
+lspconfig["cssls"].setup({
+   capabilities = capabilities,
+   on_attach = on_attach,
+ })
+
 -- configure tailwindcss server
 -- lspconfig["tailwindcss"].setup({:
 --   capabilities = capabilities,
@@ -101,23 +101,24 @@ end
 --   filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 --})
 
- local ccls_server_config = {
-  filetypes = { "c", "cpp", "objc", "objcpp", "opencl" },
-  root_dir = function(fname)
-    return util.root_pattern(".plzconfig", "compile_commands.json", "compile_flags.txt", ".git")(fname)
-       or util.find_git_ancestor(fname)
-  end,
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+ --local ccls_server_config = {
+ -- filetypes = { "c", "cpp", "objc", "objcpp", "opencl" },
+ -- root_dir = function(fname)
+ --   return util.root_pattern(".plzconfig", "compile_commands.json", "compile_flags.txt", ".ccls", ".git")(fname)
+ --      or util.find_git_ancestor(fname)
+ -- end,
+ -- on_attach = on_attach,
+ -- capabilities = capabilities,
+--}
+-- ccls.setup{ lsp = { lspconfig = ccls_server_config } }
 
-ccls.setup{ lsp = { lspconfig = ccls_server_config } }
+lspconfig.clangd.setup {}
 
 lspconfig.gopls.setup{
   cmd = {"gopls"},
-  capabilities = capabilities, 
+  capabilities = capabilities,
   codelenses = {
-    gc_details = true, 
+    gc_details = true,
   },
   filetypes = {"go", "gomod"},
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
